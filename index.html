@@ -57,6 +57,19 @@
   table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 0.8rem 0 1.2rem; font-size: 0.92rem; }
   th, td { border: 1px solid var(--border); padding: 0.55rem 0.6rem; text-align: left; vertical-align: top; overflow-wrap: break-word; }
   th { background: var(--card-bg); }
+  .col-day { width: 6%; }
+  .col-date { width: 15%; }
+  .col-plan { width: 54%; }
+  .col-note { width: 25%; }
+  td.cell-date, th.cell-date { white-space: nowrap; }
+  @media (max-width: 480px) {
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.4rem 0.35rem; }
+    .col-day { width: 8%; }
+    .col-date { width: 22%; }
+    .col-plan { width: 42%; }
+    .col-note { width: 28%; }
+  }
   .badge {
     display: inline-block;
     padding: 0.1rem 0.5rem;
@@ -150,52 +163,52 @@
 
 <table>
   <colgroup>
-    <col style="width: 6%;">
-    <col style="width: 11%;">
-    <col style="width: 58%;">
-    <col style="width: 25%;">
+    <col class="col-day">
+    <col class="col-date">
+    <col class="col-plan">
+    <col class="col-note">
   </colgroup>
   <thead>
     <tr>
       <th data-i18n="thDay"></th>
-      <th data-i18n="thDate"></th>
+      <th class="cell-date" data-i18n="thDate"></th>
       <th data-i18n="thPlan"></th>
       <th data-i18n="thNote"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td><td>8/10 (<span data-i18n="wdMon"></span>)</td>
+      <td>1</td><td class="cell-date">8/10 (<span data-i18n="wdMon"></span>)</td>
       <td data-i18n="day1Plan"></td>
       <td><span class="badge badge-warn" data-i18n="day1Badge"></span></td>
     </tr>
     <tr>
-      <td>2</td><td>8/11 (<span data-i18n="wdTue"></span>)</td>
+      <td>2</td><td class="cell-date">8/11 (<span data-i18n="wdTue"></span>)</td>
       <td data-i18n="day2Plan"></td>
       <td><span class="badge badge-warn" data-i18n="day2Badge"></span></td>
     </tr>
     <tr>
-      <td>3</td><td>8/12 (<span data-i18n="wdWed"></span>)</td>
+      <td>3</td><td class="cell-date">8/12 (<span data-i18n="wdWed"></span>)</td>
       <td data-i18n="day3Plan"></td>
       <td><span class="badge badge-tbd" data-i18n="day3Badge"></span></td>
     </tr>
     <tr>
-      <td>4</td><td>8/13 (<span data-i18n="wdThu"></span>)</td>
+      <td>4</td><td class="cell-date">8/13 (<span data-i18n="wdThu"></span>)</td>
       <td data-i18n="day4Plan"></td>
       <td><span class="badge badge-warn" data-i18n="day4Badge"></span></td>
     </tr>
     <tr>
-      <td>5</td><td>8/14 (<span data-i18n="wdFri"></span>)</td>
+      <td>5</td><td class="cell-date">8/14 (<span data-i18n="wdFri"></span>)</td>
       <td data-i18n="day5Plan"></td>
       <td><span class="badge badge-info" data-i18n="day5Badge"></span></td>
     </tr>
     <tr>
-      <td>6</td><td>8/15 (<span data-i18n="wdSat"></span>)</td>
+      <td>6</td><td class="cell-date">8/15 (<span data-i18n="wdSat"></span>)</td>
       <td data-i18n="day6Plan"></td>
       <td><span class="badge badge-tbd" data-i18n="day6Badge"></span></td>
     </tr>
     <tr>
-      <td>7</td><td>8/16 (<span data-i18n="wdSun"></span>)</td>
+      <td>7</td><td class="cell-date">8/16 (<span data-i18n="wdSun"></span>)</td>
       <td data-i18n="day7Plan"></td>
       <td><span class="badge badge-danger" data-i18n="day7Badge"></span></td>
     </tr>
