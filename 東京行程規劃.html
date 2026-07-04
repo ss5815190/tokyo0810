@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="pageTitle">東京親子行 2026/8/10-8/16</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666;
+    --border: #ddd;
+    --card-bg: #f7f7f8;
+    --good: #1a7f37;
+    --good-bg: #e6f4ea;
+    --warn: #9a6700;
+    --warn-bg: #fff5e0;
+    --danger: #c0341d;
+    --danger-bg: #fdecea;
+    --info: #0969da;
+    --info-bg: #e8f1ff;
+    --tbd: #57606a;
+    --tbd-bg: #eef0f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1e1e;
+      --fg: #e6e6e6;
+      --muted: #a0a0a0;
+      --border: #3a3a3a;
+      --card-bg: #262626;
+      --good: #4ade80;
+      --good-bg: #14301f;
+      --warn: #f5c451;
+      --warn-bg: #3a2e0e;
+      --danger: #ff8a75;
+      --danger-bg: #3a1613;
+      --info: #79b8ff;
+      --info-bg: #10233d;
+      --tbd: #b8c0c8;
+      --tbd-bg: #2a2d31;
+    }
+  }
+  body {
+    font-family: -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.2rem 1.2rem 4rem;
+    line-height: 1.6;
+  }
+  h1 { font-size: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.2rem; }
+  h3 { font-size: 1rem; margin-top: 1.4rem; color: var(--muted); }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 0.8rem 0 1.2rem; font-size: 0.92rem; }
+  th, td { border: 1px solid var(--border); padding: 0.55rem 0.6rem; text-align: left; vertical-align: top; overflow-wrap: break-word; }
+  th { background: var(--card-bg); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  .badge-good { color: var(--good); background: var(--good-bg); }
+  .badge-warn { color: var(--warn); background: var(--warn-bg); }
+  .badge-danger { color: var(--danger); background: var(--danger-bg); }
+  .badge-info { color: var(--info); background: var(--info-bg); }
+  .badge-tbd { color: var(--tbd); background: var(--tbd-bg); }
+  .callout {
+    border-left: 4px solid var(--info);
+    background: var(--info-bg);
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    margin: 0.8rem 0;
+  }
+  .callout.warn { border-left-color: var(--warn); background: var(--warn-bg); }
+  .callout.danger { border-left-color: var(--danger); background: var(--danger-bg); }
+  ul { padding-left: 1.3rem; }
+  li { margin: 0.2rem 0; }
+  .todo-list { list-style: none; padding-left: 0; }
+  .todo-list li {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .lang-switch {
+    position: sticky;
+    top: 0;
+    display: flex;
+    gap: 0.4rem;
+    justify-content: flex-end;
+    background: var(--bg);
+    padding: 0.6rem 0;
+    z-index: 10;
+  }
+  .lang-switch button {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .lang-switch button.active {
+    background: var(--info);
+    border-color: var(--info);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button type="button" data-lang="zh">中文</button>
+  <button type="button" data-lang="en">English</button>
+  <button type="button" data-lang="tr">Türkçe</button>
+</div>
+
+<h1 data-i18n="h1"></h1>
+
+<h2 data-i18n="h2Basic"></h2>
+<ul>
+  <li data-i18n="basicPeople"></li>
+  <li data-i18n="basicTransport"></li>
+  <li data-i18n="basicArrival"></li>
+  <li data-i18n="basicDeparture"></li>
+</ul>
+<div class="callout warn" data-i18n="day1WarnCallout"></div>
+
+<h2 data-i18n="h2Mustsee"></h2>
+<ul>
+  <li data-i18n="mustsee1"></li>
+  <li data-i18n="mustsee2"></li>
+  <li data-i18n="mustsee3"></li>
+  <li data-i18n="mustsee4"></li>
+</ul>
+<div class="callout" data-i18n="edoRemovedCallout"></div>
+
+<h2 data-i18n="h2Skeleton"></h2>
+<div class="callout warn" data-i18n="obonCallout"></div>
+
+<table>
+  <colgroup>
+    <col style="width: 6%;">
+    <col style="width: 11%;">
+    <col style="width: 58%;">
+    <col style="width: 25%;">
+  </colgroup>
+  <thead>
+    <tr>
+      <th data-i18n="thDay"></th>
+      <th data-i18n="thDate"></th>
+      <th data-i18n="thPlan"></th>
+      <th data-i18n="thNote"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td><td>8/10 (<span data-i18n="wdMon"></span>)</td>
+      <td data-i18n="day1Plan"></td>
+      <td><span class="badge badge-warn" data-i18n="day1Badge"></span></td>
+    </tr>
+    <tr>
+      <td>2</td><td>8/11 (<span data-i18n="wdTue"></span>)</td>
+      <td data-i18n="day2Plan"></td>
+      <td><span class="badge badge-warn" data-i18n="day2Badge"></span></td>
+    </tr>
+    <tr>
+      <td>3</td><td>8/12 (<span data-i18n="wdWed"></span>)</td>
+      <td data-i18n="day3Plan"></td>
+      <td><span class="badge badge-tbd" data-i18n="day3Badge"></span></td>
+    </tr>
+    <tr>
+      <td>4</td><td>8/13 (<span data-i18n="wdThu"></span>)</td>
+      <td data-i18n="day4Plan"></td>
+      <td><span class="badge badge-warn" data-i18n="day4Badge"></span></td>
+    </tr>
+    <tr>
+      <td>5</td><td>8/14 (<span data-i18n="wdFri"></span>)</td>
+      <td data-i18n="day5Plan"></td>
+      <td><span class="badge badge-info" data-i18n="day5Badge"></span></td>
+    </tr>
+    <tr>
+      <td>6</td><td>8/15 (<span data-i18n="wdSat"></span>)</td>
+      <td data-i18n="day6Plan"></td>
+      <td><span class="badge badge-tbd" data-i18n="day6Badge"></span></td>
+    </tr>
+    <tr>
+      <td>7</td><td>8/16 (<span data-i18n="wdSun"></span>)</td>
+      <td data-i18n="day7Plan"></td>
+      <td><span class="badge badge-danger" data-i18n="day7Badge"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 data-i18n="h2Fuji"></h2>
+<p data-i18n="fujiTransport"></p>
+<p data-i18n="fujiRopeway"></p>
+<p data-i18n="fujiSpotsIntro"></p>
+<ul>
+  <li data-i18n="fujiSpot1"></li>
+  <li data-i18n="fujiSpot2"></li>
+  <li data-i18n="fujiSpot3"></li>
+  <li data-i18n="fujiSpot4"></li>
+</ul>
+<p data-i18n="fujiHotel"></p>
+
+<h2 data-i18n="h2Disney"></h2>
+<p data-i18n="disneyText"></p>
+
+<h2 data-i18n="h2Hotel"></h2>
+<ul>
+  <li data-i18n="hotelDay1"></li>
+  <li data-i18n="hotelDay2to6"></li>
+</ul>
+
+<h2 data-i18n="h2Candidates"></h2>
+<ul>
+  <li data-i18n="candidateEdo"></li>
+</ul>
+
+<h3 data-i18n="h3Suburb"></h3>
+<ul>
+  <li data-i18n="suburb1"></li>
+  <li data-i18n="suburb2"></li>
+  <li data-i18n="suburb3"></li>
+  <li data-i18n="suburb4"></li>
+</ul>
+
+<h3 data-i18n="h3Cool"></h3>
+<ul>
+  <li data-i18n="cool1"></li>
+  <li data-i18n="cool2"></li>
+  <li data-i18n="cool3"></li>
+  <li data-i18n="cool4"></li>
+  <li data-i18n="cool5"></li>
+</ul>
+
+<h2 data-i18n="h2Links"></h2>
+<ul>
+  <li><a data-i18n="link1" href="https://www.senso-ji.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link2" href="https://www.tokyo-skytree.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link3" href="https://www.mtfujiropeway.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link4" href="https://oshino-navi.com/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link5" href="https://en.kawaguchiko.net/park-en/oishi-park/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link6" href="https://kawaguchikomusicforest.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link7" href="https://www.fujiq.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link8" href="https://www.tokyodisneyresort.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link9" href="https://www.jreast.co.jp/hachioji/fuji_excursion/index.html" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link10" href="https://bus.fujikyu.co.jp/highway/detail/id/4" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link11" href="https://www.kunaicho.go.jp/visit/higashigyoen/index.html" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link12" href="https://www.trip-kamakura.com/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link13" href="https://www.fujisawa-kanko.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link14" href="https://koedo.or.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link15" href="https://www.nikko-kankou.org/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link16" href="https://www.welcome.city.yokohama.jp/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link17" href="https://www.teamlab.art/e/planets/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link18" href="https://www.sumida-aquarium.com/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link19" href="https://sunshinecity.jp/aquarium/" target="_blank" rel="noopener"></a></li>
+  <li><a data-i18n="link20" href="https://www.okutama.gr.jp/" target="_blank" rel="noopener"></a></li>
+</ul>
+
+<h2 data-i18n="h2Todo"></h2>
+<ul class="todo-list">
+  <li data-i18n="todo1"></li>
+  <li data-i18n="todo2"></li>
+  <li data-i18n="todo3"></li>
+  <li data-i18n="todo4"></li>
+  <li data-i18n="todo5"></li>
+</ul>
+
+<script>
+const translations = {
+  zh: {
+    pageTitle: "東京親子行 2026/8/10-8/16",
+    h1: "東京親子行 2026/8/10 - 8/16（7天6夜）",
+    h2Basic: "基本資訊",
+    basicPeople: "人數：3大1小（小朋友為國小 7-12歲）",
+    basicTransport: "交通：以地鐵/電車為主",
+    basicArrival: "8/10 抵達：下午班機，計畫入境後直接搭機場⇔河口湖直達巴士前往富士山，當天不排市區景點",
+    basicDeparture: "8/16 離開：機票尚未購買，建議訂<strong>傍晚以後班機</strong>，讓早上還能安排半天行程",
+    day1WarnCallout: "<strong>Day1直奔富士山，需視班機時間確認可行性：</strong>成田/羽田都有「機場⇔河口湖」直達巴士，但一天只有2-4班、需事先預約。等機票確定後，要用「降落時間 + 入境提領行李（抓1.5小時緩衝）」去對巴士時刻表；如果太趕，就改回原方案（先住淺草/上野一晚，隔天再去富士山）。",
+    h2Mustsee: "必排景點（使用者指定）",
+    mustsee1: "淺草寺、雷門",
+    mustsee2: "晴空塔",
+    mustsee3: "富士山（2天1夜，不爬山，搭纜車看富士山）",
+    mustsee4: "迪士尼（1天）<span class=\"badge badge-tbd\">Land/Sea 待定</span>",
+    edoRemovedCallout: "江戶城（皇居東御苑）已移除，改列入下方候補景點。",
+    h2Skeleton: "7天6夜 骨架（已考慮盂蘭盆連假調整）",
+    obonCallout: "2026年盂蘭盆連假固定為 <strong>8/13(四) ~ 8/16(日)</strong>，剛好對到行程後半段。<ul><li>富士山方向的高速公路/巴士在盂蘭盆期間（尤其8/13出發潮、8/15-16回程潮）會嚴重回堵</li><li>迪士尼在暑假+盂蘭盆疊加下是全年最擁擠時段之一，週六(8/15)又比平日更誇張</li><li>淺草/晴空塔等觀光景點主要受觀光客人數影響，較不受「日本人返鄉」牽動，市中心通勤人流反而變少</li></ul>因此調整為：<strong>富士山提前到盂蘭盆前（8/11-12），迪士尼排在盂蘭盆的平日（週四）而非週六，市區景點排在盂蘭盆連假中後段</strong>。",
+    thDay: "Day", thDate: "日期", thPlan: "安排", thNote: "備註",
+    wdMon: "一", wdTue: "二", wdWed: "三", wdThu: "四", wdFri: "五", wdSat: "六", wdSun: "日",
+    day1Plan: "下午抵達 → 直接搭機場⇔河口湖直達巴士 → 入住河口湖飯店",
+    day1Badge: "需視班機時間確認巴士班次",
+    day2Plan: "河口湖纜車、忍野八海、大石公園、河口湖音樂盒之森（整天富士山景點）→ 傍晚搭富士回遊返回東京，直接入住舞濱/浦安（不再經過淺草/上野）",
+    day2Badge: "白天景點間移動搭乘河口湖周遊巴士，仍可能受塞車影響；傍晚返回東京改搭JR「富士回遊」列車，才不受塞車影響",
+    day3Plan: "彈性/待定",
+    day3Badge: "等機票確定後再排（可考慮鎌倉、川越等近郊）",
+    day4Plan: "迪士尼（Land 或 Sea）",
+    day4Badge: "盂蘭盆已開始，但仍是平日",
+    day5Plan: "淺草寺・雷門・仲見世通 → 晴空塔（可搭配すみだ水族館室內避暑）",
+    day5Badge: "皇居週五公休，剛好排別的景點",
+    day6Plan: "彈性/待定",
+    day6Badge: "未決定，盂蘭盆尖峰週六，市區景點影響較小",
+    day7Plan: "上午彈性行程（舞濱周邊或東京車站伴手禮）→ 前往機場",
+    day7Badge: "回程尖峰日，僅去機場不受影響",
+    h2Fuji: "富士山 2天1夜 細節",
+    fujiTransport: "<strong>去程交通</strong>：搭 <strong>JR特急「富士回遊」</strong>（新宿⇄河口湖，中途不轉車，約2小時），對號座、準點率高，不受塞車影響，比高速巴士更適合帶小孩+行李的家庭（不走高速公路）。",
+    fujiRopeway: "<strong>纜車</strong>：不需爬山，河口湖「<strong>河口湖纜車</strong>」（Kachi Kachi Ropeway／天上山纜車）搭上展望台可直接看富士山全景，來回約30-40分鐘，適合帶小孩。",
+    fujiSpotsIntro: "<strong>順路景點推薦</strong>：",
+    fujiSpot1: "忍野八海：湧泉小村，散步拍照約1小時",
+    fujiSpot2: "大石公園：河口湖畔花海＋富士山合照名景點",
+    fujiSpot3: "河口湖音樂盒之森：庭園＋室內展館，適合親子",
+    fujiSpot4: "富士急樂園：如果小孩喜歡刺激遊樂設施，可排半天到一天（會排擠其他富士景點）",
+    fujiHotel: "<strong>住宿建議</strong>：河口湖畔溫泉旅館，優先找「可看富士山view」的房間，8月為旺季建議盡快訂房。",
+    h2Disney: "迪士尼",
+    disneyText: "國小年紀小孩通常較適合 <strong>Land</strong>（卡通角色、遊行、親子向設施較多）；<strong>Sea</strong> 主題造景與刺激設施較多。<span class=\"badge badge-tbd\">尚待決定</span>",
+    h2Hotel: "住宿分區建議（共2間飯店、1次換宿）",
+    hotelDay1: "<strong>Day1（8/10）</strong>：河口湖畔溫泉旅館，抵達當晚直接入住，優先找可看富士山view的房間；行李直接全程帶著，不用宅配便轉寄",
+    hotelDay2to6: "<strong>Day2-6（8/11～8/15，共5晚）</strong>：舞濱／浦安一帶，回東京後不再換宿，迪士尼、淺草/晴空塔、銀座都從這裡搭電車當天來回，8/16退房後直接前往機場",
+    h2Candidates: "候補景點（尚未排入行程）",
+    candidateEdo: "皇居東御苑（江戶城遺跡）：免費入園，看石垣、天守台遺跡，半天可走完；<span class=\"badge badge-danger\">每週一、五公休</span>",
+    h3Suburb: "近郊景點",
+    suburb1: "鎌倉・江之島：古寺＋海邊，需一整天",
+    suburb2: "川越：小江戶老街，半天到一天",
+    suburb3: "日光：世界遺產神社＋瀑布，較遠建議一整天以上",
+    suburb4: "橫濱：港區＋中華街，半天到一天",
+    h3Cool: "避暑景點",
+    cool1: "teamLab Planets（豐洲）：室內光雕＋涉水展區，需脫鞋走水",
+    cool2: "すみだ水族館（晴空塔內）：可直接併入 Day5（晴空塔當天）",
+    cool3: "陽光水族館（池袋）",
+    cool4: "河口湖／山中湖一帶：本身高原氣候較涼（已在行程內）",
+    cool5: "奧多摩：溪谷玩水，天然消暑但交通較花時間",
+    h2Todo: "待決定事項",
+    todo1: "Day3(8/12)、Day6(8/15) 還沒排景點，可從候補景點挑（丸之內／銀座、江戶城遺跡、鎌倉、川越、避暑景點等）",
+    todo2: "迪士尼選 Land 還是 Sea？",
+    todo3: "回程機票（機場、時間）",
+    todo4: "富士山周邊旅館、舞濱飯店具體名單",
+    todo5: "確認機場⇔河口湖直達巴士時刻表（需視班機時間）",
+    h2Links: "景點參考連結",
+    link1: "淺草寺・雷門 官方網站",
+    link2: "東京晴空塔 官方網站",
+    link3: "河口湖纜車（天上山纜車）官方網站",
+    link4: "忍野八海 觀光導覽",
+    link5: "大石公園（河口湖）介紹",
+    link6: "河口湖音樂盒之森 官方網站",
+    link7: "富士急樂園 官方網站",
+    link8: "東京迪士尼渡假區 官方網站",
+    link9: "JR特急「富士回遊」列車資訊",
+    link10: "機場⇔河口湖直達巴士 時刻表",
+    link11: "皇居東御苑 官方導覽（宮內廳）",
+    link12: "鎌倉觀光協會",
+    link13: "江之島・藤澤觀光",
+    link14: "川越（小江戶）觀光協會",
+    link15: "日光市觀光協會",
+    link16: "橫濱觀光官方指南",
+    link17: "teamLab Planets TOKYO",
+    link18: "すみだ水族館 官方網站",
+    link19: "陽光水族館（池袋）官方網站",
+    link20: "奧多摩觀光協會"
+  },
+  en: {
+    pageTitle: "Tokyo Family Trip Aug 10-16, 2026",
+    h1: "Tokyo Family Trip Aug 10 - 16, 2026 (7 days / 6 nights)",
+    h2Basic: "Basic Info",
+    basicPeople: "Group: 3 adults + 1 child (elementary school age, 7-12)",
+    basicTransport: "Transport: mainly subway/train",
+    basicArrival: "Aug 10 arrival: afternoon flight. Plan is to go straight from the airport to Kawaguchiko by direct bus after clearing immigration &mdash; no city sightseeing that day",
+    basicDeparture: "Aug 16 departure: flight not booked yet. Recommend booking an <strong>evening or later flight</strong> so the morning can still be used for a half-day activity",
+    day1WarnCallout: "<strong>Going straight to Fuji on Day1 depends on flight timing:</strong> Both Narita and Haneda have direct \"airport &harr; Kawaguchiko\" buses, but only 2-4 departures a day and reservation is required in advance. Once flights are booked, check landing time + immigration/baggage claim (allow a 1.5h buffer) against the bus timetable. If it's too tight, fall back to the original plan (stay one night in Asakusa/Ueno first, then head to Fuji the next day).",
+    h2Mustsee: "Must-see Spots (requested)",
+    mustsee1: "Sensoji Temple, Kaminarimon Gate",
+    mustsee2: "Tokyo Skytree",
+    mustsee3: "Mt. Fuji (2 days / 1 night, no climbing, ropeway view of Mt. Fuji)",
+    mustsee4: "Tokyo Disney (1 day) <span class=\"badge badge-tbd\">Land/Sea TBD</span>",
+    edoRemovedCallout: "Edo Castle (Imperial Palace East Garden) has been removed from the fixed plan and moved to the candidate list below.",
+    h2Skeleton: "7-Day / 6-Night Skeleton (adjusted for Obon holiday)",
+    obonCallout: "Japan's mid-August Obon holiday is fixed at <strong>Aug 13 (Thu) &ndash; Aug 16 (Sun)</strong> in 2026, which lines up exactly with the second half of this trip.<ul><li>Highways/buses toward Mt. Fuji get severely jammed during Obon (especially the outbound rush around Aug 13 and the return rush around Aug 15-16)</li><li>Disney is one of the most crowded times of the year during summer break + Obon combined; Saturday (Aug 15) is worse than a weekday</li><li>Tourist spots like Asakusa/Skytree are mainly driven by tourist numbers rather than Japanese residents returning home, so central Tokyo actually gets less commuter traffic</li></ul>So the plan is adjusted to: <strong>do Mt. Fuji before Obon starts (Aug 11-12), schedule Disney on an Obon weekday (Thursday) rather than Saturday, and put city sightseeing in the middle/later part of the Obon period</strong>.",
+    thDay: "Day", thDate: "Date", thPlan: "Plan", thNote: "Notes",
+    wdMon: "Mon", wdTue: "Tue", wdWed: "Wed", wdThu: "Thu", wdFri: "Fri", wdSat: "Sat", wdSun: "Sun",
+    day1Plan: "Afternoon arrival &rarr; direct airport&harr;Kawaguchiko bus &rarr; check in to Kawaguchiko hotel",
+    day1Badge: "Depends on flight time / bus schedule",
+    day2Plan: "Kawaguchiko Ropeway, Oshino Hakkai, Oishi Park, Kawaguchiko Music Forest (full day of Fuji sightseeing) &rarr; evening return to Tokyo via Fuji Excursion train, check in directly to Maihama/Urayasu (no more Asakusa/Ueno stay)",
+    day2Badge: "Moving between sightseeing spots by local sightseeing bus &mdash; still traffic-dependent; only the evening return to Tokyo (JR \"Fuji Excursion\" train) is unaffected by traffic",
+    day3Plan: "Flexible / TBD",
+    day3Badge: "To be decided once flights are booked (consider Kamakura, Kawagoe, etc.)",
+    day4Plan: "Tokyo Disney (Land or Sea)",
+    day4Badge: "Obon has started, but still a weekday",
+    day5Plan: "Sensoji Temple, Kaminarimon, Nakamise-dori &rarr; Tokyo Skytree (can pair with Sumida Aquarium indoors to cool off)",
+    day5Badge: "Imperial Palace is closed Fridays &mdash; good day to do something else",
+    day6Plan: "Flexible / TBD",
+    day6Badge: "Not decided yet; Obon peak Saturday, but city sightseeing is less affected",
+    day7Plan: "Flexible morning activity (around Maihama or Tokyo Station souvenir shopping) &rarr; head to the airport",
+    day7Badge: "Peak return-travel day, but only affects the airport transfer",
+    h2Fuji: "Mt. Fuji 2 Days / 1 Night Details",
+    fujiTransport: "<strong>Getting there</strong>: Take the <strong>JR Limited Express \"Fuji Excursion\"</strong> (Shinjuku &harr; Kawaguchiko, no transfer, about 2 hours). Reserved seating, highly punctual, unaffected by traffic &mdash; better suited for a family with a child and luggage than a highway bus (doesn't use the expressway).",
+    fujiRopeway: "<strong>Ropeway</strong>: No climbing needed. The Kawaguchiko <strong>Kachi Kachi Ropeway</strong> (Mt. Tenjo Ropeway) takes you up to an observation deck with a full view of Mt. Fuji &mdash; round trip about 30-40 minutes, kid-friendly.",
+    fujiSpotsIntro: "<strong>Recommended nearby spots</strong>:",
+    fujiSpot1: "Oshino Hakkai: a small village with natural springs, about 1 hour of strolling and photos",
+    fujiSpot2: "Oishi Park: famous spot for flower fields by the lake with Mt. Fuji in the background",
+    fujiSpot3: "Kawaguchiko Music Forest: gardens plus indoor exhibits, family-friendly",
+    fujiSpot4: "Fuji-Q Highland: if the kids like thrill rides, allocate half a day to a full day (will eat into time for other Fuji spots)",
+    fujiHotel: "<strong>Lodging</strong>: a hot spring ryokan by Lake Kawaguchi &mdash; prioritize a room with a Mt. Fuji view. August is peak season, so book early.",
+    h2Disney: "Tokyo Disney",
+    disneyText: "For an elementary-school-age child, <strong>Disneyland</strong> usually suits better (characters, parades, more family-friendly attractions); <strong>DisneySea</strong> leans more toward themed sets and thrill rides. <span class=\"badge badge-tbd\">Still undecided</span>",
+    h2Hotel: "Lodging Plan (2 hotels total, 1 change)",
+    hotelDay1: "<strong>Day1 (Aug 10)</strong>: Hot spring ryokan by Lake Kawaguchi, checking in directly on arrival night &mdash; prioritize a room with a Mt. Fuji view. Luggage is carried along the whole way, no need for a delivery/forwarding service",
+    hotelDay2to6: "<strong>Day2-6 (Aug 11-15, 5 nights)</strong>: Maihama/Urayasu area &mdash; no more hotel changes once back in Tokyo. Disney, Asakusa/Skytree, and Ginza are all done as day trips by train from here. Check out and head straight to the airport on Aug 16",
+    h2Candidates: "Candidate Spots (not yet scheduled)",
+    candidateEdo: "Imperial Palace East Garden (Edo Castle ruins): free entry, see the stone walls and castle keep foundation, doable in half a day; <span class=\"badge badge-danger\">closed Mondays &amp; Fridays</span>",
+    h3Suburb: "Suburb Trips",
+    suburb1: "Kamakura / Enoshima: old temples + seaside, needs a full day",
+    suburb2: "Kawagoe: \"Little Edo\" old town, half a day to a full day",
+    suburb3: "Nikko: UNESCO shrine + waterfalls, further away, recommend a full day or more",
+    suburb4: "Yokohama: harbor area + Chinatown, half a day to a full day",
+    h3Cool: "Heat-relief Spots",
+    cool1: "teamLab Planets (Toyosu): indoor light installations + wading exhibits, shoes off, walk through water",
+    cool2: "Sumida Aquarium (inside Skytree): can be folded directly into Day5 (Skytree day)",
+    cool3: "Sunshine Aquarium (Ikebukuro)",
+    cool4: "Kawaguchiko / Yamanakako area: naturally cooler highland climate (already in the itinerary)",
+    cool5: "Okutama: river valley for playing in the water, naturally cool but takes longer to get to",
+    h2Todo: "Open Decisions",
+    todo1: "Day3 (Aug 12) and Day6 (Aug 15) still have no plan &mdash; pick from the candidate list (Marunouchi/Ginza, Edo Castle ruins, Kamakura, Kawagoe, heat-relief spots, etc.)",
+    todo2: "Disneyland or DisneySea?",
+    todo3: "Return flight (airport, time)",
+    todo4: "Specific hotel names for Mt. Fuji area and Maihama",
+    todo5: "Confirm the airport&harr;Kawaguchiko direct bus timetable (depends on flight time)",
+    h2Links: "Reference Links",
+    link1: "Sensoji Temple & Kaminarimon (official site)",
+    link2: "Tokyo Skytree (official site)",
+    link3: "Kachi Kachi Ropeway / Mt. Tenjo Ropeway (official site)",
+    link4: "Oshino Hakkai (tourism guide)",
+    link5: "Oishi Park (Kawaguchiko) overview",
+    link6: "Kawaguchiko Music Forest (official site)",
+    link7: "Fuji-Q Highland (official site)",
+    link8: "Tokyo Disney Resort (official site)",
+    link9: "JR Limited Express \"Fuji Excursion\" info",
+    link10: "Airport&harr;Kawaguchiko direct bus timetable",
+    link11: "Imperial Palace East Garden (Imperial Household Agency)",
+    link12: "Kamakura Tourism Association",
+    link13: "Enoshima / Fujisawa Tourism",
+    link14: "Kawagoe (Koedo) Tourism Association",
+    link15: "Nikko City Tourism Association",
+    link16: "Yokohama Official Visitors' Guide",
+    link17: "teamLab Planets TOKYO",
+    link18: "Sumida Aquarium (official site)",
+    link19: "Sunshine Aquarium (Ikebukuro) official site",
+    link20: "Okutama Tourism Association"
+  },
+  tr: {
+    pageTitle: "Tokyo Aile Gezisi 10-16 Ağustos 2026",
+    h1: "Tokyo Aile Gezisi 10 - 16 Ağustos 2026 (7 gün / 6 gece)",
+    h2Basic: "Genel Bilgiler",
+    basicPeople: "Grup: 3 yetişkin + 1 çocuk (ilkokul çağı, 7-12 yaş)",
+    basicTransport: "Ulaşım: ağırlıklı olarak metro/tren",
+    basicArrival: "10 Ağustos varış: öğleden sonra uçuşu. Havalimanından pasaport kontrolünün ardından doğrudan otobüsle Kawaguchiko'ya gidilmesi planlanıyor &mdash; o gün şehir içi gezi yok",
+    basicDeparture: "16 Ağustos dönüş: uçak bileti henüz alınmadı. Sabahın yarısını başka bir etkinliğe ayırabilmek için <strong>akşam veya daha geç bir uçuş</strong> önerilir",
+    day1WarnCallout: "<strong>1. günde doğrudan Fuji'ye gitmek uçuş saatine bağlı:</strong> Hem Narita hem Haneda'da doğrudan \"havalimanı &harr; Kawaguchiko\" otobüsleri var, ancak günde sadece 2-4 sefer var ve önceden rezervasyon gerekiyor. Uçuşlar kesinleştiğinde, iniş saati + pasaport kontrolü/bagaj alımı (1.5 saatlik tampon süre) ile otobüs saatlerini karşılaştırın. Çok sıkışıksa, ilk plana dönün (önce Asakusa/Ueno'da bir gece kalıp ertesi gün Fuji'ye gidin).",
+    h2Mustsee: "Mutlaka Görülecek Yerler (talep edilen)",
+    mustsee1: "Sensoji Tapınağı, Kaminarimon Kapısı",
+    mustsee2: "Tokyo Skytree",
+    mustsee3: "Fuji Dağı (2 gün / 1 gece, tırmanış yok, teleferikle Fuji manzarası)",
+    mustsee4: "Tokyo Disney (1 gün) <span class=\"badge badge-tbd\">Land/Sea kararlaştırılmadı</span>",
+    edoRemovedCallout: "Edo Kalesi (İmparatorluk Sarayı Doğu Bahçesi) sabit plandan çıkarıldı ve aşağıdaki aday liste taşındı.",
+    h2Skeleton: "7 Gün / 6 Gece İskelet Plan (Obon tatiline göre ayarlandı)",
+    obonCallout: "Japonya'nın ağustos ortası Obon tatili 2026'da <strong>13 Ağustos (Perşembe) &ndash; 16 Ağustos (Pazar)</strong> olarak sabit ve bu tarih gezinin ikinci yarısıyla tam örtüşüyor.<ul><li>Fuji Dağı yönündeki otoyollar/otobüsler Obon döneminde ciddi şekilde tıkanır (özellikle 13 Ağustos'taki gidiş yoğunluğu ve 15-16 Ağustos'taki dönüş yoğunluğu)</li><li>Disney, yaz tatili + Obon'un üst üste bindiği için yılın en kalabalık dönemlerinden biridir; Cumartesi (15 Ağustos) hafta içinden daha kötüdür</li><li>Asakusa/Skytree gibi turistik yerler daha çok turist sayısına bağlıdır, Japonların memleketlerine dönmesinden pek etkilenmez; bu yüzden şehir merkezinde günlük yolcu trafiği aslında azalır</li></ul>Bu nedenle plan şöyle ayarlandı: <strong>Fuji Dağı gezisini Obon başlamadan önce yapın (11-12 Ağustos), Disney'i Cumartesi yerine Obon içindeki bir hafta içi güne (Perşembe) koyun, şehir içi gezileri Obon döneminin orta/son kısmına yerleştirin</strong>.",
+    thDay: "Gün", thDate: "Tarih", thPlan: "Plan", thNote: "Not",
+    wdMon: "Pzt", wdTue: "Sal", wdWed: "Çar", wdThu: "Per", wdFri: "Cum", wdSat: "Cmt", wdSun: "Paz",
+    day1Plan: "Öğleden sonra varış &rarr; doğrudan havalimanı&harr;Kawaguchiko otobüsü &rarr; Kawaguchiko'daki otele giriş",
+    day1Badge: "Uçuş saatine / otobüs tarifesine bağlı",
+    day2Plan: "Kawaguchiko Teleferiği, Oshino Hakkai, Oishi Parkı, Kawaguchiko Müzik Kutusu Ormanı (tüm gün Fuji gezisi) &rarr; akşam Fuji Excursion treniyle Tokyo'ya dönüş, doğrudan Maihama/Urayasu'da otele giriş (artık Asakusa/Ueno'ya uğranmıyor)",
+    day2Badge: "Gündüz noktalar arası ulaşım yerel tur otobüsüyle &mdash; trafikten hâlâ etkilenebilir; sadece akşam Tokyo'ya dönüş (JR \"Fuji Excursion\" treni) trafikten etkilenmez",
+    day3Plan: "Esnek / belirlenmedi",
+    day3Badge: "Uçuşlar kesinleştikten sonra kararlaştırılacak (Kamakura, Kawagoe gibi yerler düşünülebilir)",
+    day4Plan: "Tokyo Disney (Land veya Sea)",
+    day4Badge: "Obon başladı ama yine de hafta içi",
+    day5Plan: "Sensoji Tapınağı, Kaminarimon, Nakamise-dori &rarr; Tokyo Skytree (serinlemek için Sumida Akvaryumu'yla birleştirilebilir)",
+    day5Badge: "İmparatorluk Sarayı Cuma günleri kapalı &mdash; başka bir şey yapmak için uygun gün",
+    day6Plan: "Esnek / belirlenmedi",
+    day6Badge: "Henüz kararlaştırılmadı; Obon'un en yoğun Cumartesi günü, ama şehir içi gezi daha az etkilenir",
+    day7Plan: "Esnek sabah etkinliği (Maihama civarı veya Tokyo İstasyonu'nda hediyelik alışverişi) &rarr; havalimanına gidiş",
+    day7Badge: "Dönüş yoğunluğunun zirve günü, ama sadece havalimanına gidişi etkiler",
+    h2Fuji: "Fuji Dağı 2 Gün / 1 Gece Detayları",
+    fujiTransport: "<strong>Gidiş ulaşımı</strong>: <strong>JR Ekspres \"Fuji Excursion\"</strong> trenini kullanın (Shinjuku &harr; Kawaguchiko, aktarmasız, yaklaşık 2 saat). Rezervasyonlu koltuk, yüksek dakiklik, trafikten etkilenmez &mdash; çocuklu ve bagajlı bir aile için otoyol otobüsünden daha uygundur (otoyolu kullanmaz).",
+    fujiRopeway: "<strong>Teleferik</strong>: Tırmanmaya gerek yok. Kawaguchiko'daki <strong>Kachi Kachi Teleferiği</strong> (Mt. Tenjo Teleferiği) sizi Fuji Dağı'nın tam manzarasının göründüğü bir gözlem terasına çıkarır &mdash; gidiş-dönüş yaklaşık 30-40 dakika, çocuklar için uygundur.",
+    fujiSpotsIntro: "<strong>Yakındaki önerilen yerler</strong>:",
+    fujiSpot1: "Oshino Hakkai: doğal kaynaklı küçük bir köy, yaklaşık 1 saatlik yürüyüş ve fotoğraf molası",
+    fujiSpot2: "Oishi Parkı: göl kenarında, arka planda Fuji Dağı ile ünlü çiçek tarlaları",
+    fujiSpot3: "Kawaguchiko Müzik Kutusu Ormanı: bahçeler ve kapalı sergi alanları, aile dostu",
+    fujiSpot4: "Fuji-Q Highland: çocuklar heyecanlı oyuncakları seviyorsa yarım günden tam güne kadar ayrılabilir (diğer Fuji noktalarına ayrılan zamanı azaltır)",
+    fujiHotel: "<strong>Konaklama</strong>: Kawaguchiko Gölü kıyısında bir kaplıca oteli &mdash; öncelikle Fuji Dağı manzaralı bir oda arayın. Ağustos yoğun sezon olduğu için erkenden rezervasyon yapılması önerilir.",
+    h2Disney: "Tokyo Disney",
+    disneyText: "İlkokul çağındaki bir çocuk için genellikle <strong>Disneyland</strong> daha uygundur (karakterler, geçit törenleri, daha fazla aile dostu atraksiyon); <strong>DisneySea</strong> daha çok tematik dekor ve heyecanlı atraksiyonlara yönelir. <span class=\"badge badge-tbd\">Henüz kararlaştırılmadı</span>",
+    h2Hotel: "Konaklama Planı (toplam 2 otel, 1 otel değişikliği)",
+    hotelDay1: "<strong>1. Gün (10 Ağustos)</strong>: Kawaguchiko Gölü kıyısında kaplıca oteli, varış gecesi doğrudan giriş yapılır &mdash; öncelikle Fuji Dağı manzaralı bir oda tercih edin. Bagajlar tüm gezi boyunca yanınızda taşınır, kargo hizmetine gerek yok",
+    hotelDay2to6: "<strong>2-6. Günler (11-15 Ağustos, 5 gece)</strong>: Maihama/Urayasu bölgesi &mdash; Tokyo'ya döndükten sonra otel değişikliği yok. Disney, Asakusa/Skytree ve Ginza buradan trenle günübirlik olarak gezilir. 16 Ağustos'ta otelden çıkıp doğrudan havalimanına gidilir",
+    h2Candidates: "Aday Yerler (henüz plana dahil edilmedi)",
+    candidateEdo: "İmparatorluk Sarayı Doğu Bahçesi (Edo Kalesi kalıntıları): ücretsiz giriş, taş duvarları ve kale temelini görün, yarım günde gezilebilir; <span class=\"badge badge-danger\">Pazartesi ve Cuma günleri kapalı</span>",
+    h3Suburb: "Yakın Şehir Dışı Geziler",
+    suburb1: "Kamakura / Enoshima: eski tapınaklar + deniz kıyısı, tam gün gerektirir",
+    suburb2: "Kawagoe: \"Küçük Edo\" eski çarşısı, yarım günden tam güne",
+    suburb3: "Nikko: UNESCO tapınağı + şelaleler, daha uzak, tam gün veya daha fazlası önerilir",
+    suburb4: "Yokohama: liman bölgesi + Çin Mahallesi, yarım günden tam güne",
+    h3Cool: "Serinlik Noktaları",
+    cool1: "teamLab Planets (Toyosu): kapalı alanda ışık enstalasyonları + suya girilen sergiler, ayakkabısız, suda yürüyerek gezilir",
+    cool2: "Sumida Akvaryumu (Skytree içinde): doğrudan 5. Güne (Skytree günü) eklenebilir",
+    cool3: "Sunshine Akvaryumu (Ikebukuro)",
+    cool4: "Kawaguchiko / Yamanakako bölgesi: doğal olarak daha serin yayla iklimi (zaten programda)",
+    cool5: "Okutama: vadide su oyunları, doğal olarak serin ama ulaşımı daha uzun sürer",
+    h2Todo: "Henüz Karar Verilmemiş Konular",
+    todo1: "3. Gün (12 Ağustos) ve 6. Gün (15 Ağustos) için henüz plan yok &mdash; aday listeden seçin (Marunouchi/Ginza, Edo Kalesi kalıntıları, Kamakura, Kawagoe, serinlik noktaları vb.)",
+    todo2: "Disneyland mı DisneySea mi?",
+    todo3: "Dönüş uçuşu (havalimanı, saat)",
+    todo4: "Fuji Dağı bölgesi ve Maihama için kesin otel isimleri",
+    todo5: "Havalimanı&harr;Kawaguchiko doğrudan otobüs tarifesini teyit edin (uçuş saatine bağlı)",
+    h2Links: "Referans Bağlantıları",
+    link1: "Sensoji Tapınağı ve Kaminarimon (resmi site)",
+    link2: "Tokyo Skytree (resmi site)",
+    link3: "Kachi Kachi Teleferiği / Mt. Tenjo Teleferiği (resmi site)",
+    link4: "Oshino Hakkai (turizm rehberi)",
+    link5: "Oishi Parkı (Kawaguchiko) tanıtımı",
+    link6: "Kawaguchiko Müzik Kutusu Ormanı (resmi site)",
+    link7: "Fuji-Q Highland (resmi site)",
+    link8: "Tokyo Disney Resort (resmi site)",
+    link9: "JR Ekspres \"Fuji Excursion\" bilgisi",
+    link10: "Havalimanı&harr;Kawaguchiko doğrudan otobüs tarifesi",
+    link11: "İmparatorluk Sarayı Doğu Bahçesi (İmparatorluk Hanedanlığı Dairesi)",
+    link12: "Kamakura Turizm Derneği",
+    link13: "Enoshima / Fujisawa Turizmi",
+    link14: "Kawagoe (Koedo) Turizm Derneği",
+    link15: "Nikko Şehir Turizm Derneği",
+    link16: "Yokohama Resmi Ziyaretçi Rehberi",
+    link17: "teamLab Planets TOKYO",
+    link18: "Sumida Akvaryumu (resmi site)",
+    link19: "Sunshine Akvaryumu (Ikebukuro) resmi site",
+    link20: "Okutama Turizm Derneği"
+  }
+};
+
+function applyLanguage(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    const key = el.getAttribute('data-i18n');
+    const value = translations[lang] && translations[lang][key];
+    if (value !== undefined) {
+      el.innerHTML = value;
+    }
+  });
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+  document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+  localStorage.setItem('itineraryLang', lang);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    applyLanguage(btn.getAttribute('data-lang'));
+  });
+});
+
+applyLanguage(localStorage.getItem('itineraryLang') || 'zh');
+</script>
+
+</body>
+</html>
